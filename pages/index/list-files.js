@@ -7,6 +7,8 @@ All code and assets for this app live under https://github.com/rethinksoftware/p
 
 The editor skeleton is already passed a File object and a write() function. You'll need to configure write() yourself, but it should update the files list in state. Files do not need to persist between reloads (but it would be neat if they did). Look for REGISTERED_EDITORS in index.js to register editors for different media types.
 
+Install any npm packages you'd like.
+
 This is designed for creative freedom. Everybody loves to edit plaintext, but feel free to take initiative on secondary objectives of your choosing.
 
 Once complete, I'd love to see how you think about editing plaintext. Email me a repo link at will@rethink.software.

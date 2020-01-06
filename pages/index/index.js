@@ -54,7 +54,7 @@ function FilesTable({ files, activeFile, setActiveFile }) {
               </td>
 
               <td>
-                {file.lastModifiedDate.toLocaleDateString("en-US", {
+                {new Date(file.lastModified).toLocaleDateString("en-US", {
                   weekday: "long",
                   year: "numeric",
                   month: "long",

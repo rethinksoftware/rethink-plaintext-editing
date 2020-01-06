@@ -1,19 +1,17 @@
 export function listFiles() {
   const guide = new File(
     [
-      `Welcome to Rethink Software's frontend engineering challenge!
+      `The primary objective is to extend this application to support plaintext editing. Instead of this default preview, text files will open in an elegant editor built by you. The editor will support writing changes to the file.
 
-The primary objective is to extend this application to support plaintext editing. Instead of this default preview, text files will open in an elegant editor built by you. The editor will support writing changes to the file. This objective should not take more than 45 minutes to complete.
+All code and assets for this app live under https://github.com/rethinksoftware/plaintext-editing-challenge.
 
-All code and assets for this challenge live under https://github.com/rethinksoftware/plaintext-editing-challenge.
+The editor skeleton is already passed a File object and a write() function. You'll need to configure write() yourself, but it should update the files list in state. Files do not need to persist between reloads (but it would be neat if they did). Look for REGISTERED_EDITORS in index.js to register editors for different media types.
 
-The editor you'll work on is already passed a File object and a write() function. You'll need to configure write() yourself, but it should update the files list in state. Files do not need to persist between reloads (but it would be neat if they did). Look for REGISTERED_EDITORS in index.js to register editors for different media types.
+This is designed for creative freedom. Everybody loves to edit plaintext, but feel free to take initiative on secondary objectives of your choosing.
 
-This challenge is designed to provide unlimited creative freedom. The primary objective is to edit plaintext, but if you're looking for more and want to immediately stand out, feel free to take initiative on secondary objectives of your choosing.
+Once complete, I'd love to see how you think about editing plaintext. Email me a repo link at will@rethink.software.
 
-Once complete, send me (will@rethink.software) a GitHub repository link. I will clone and then run it using npm i && npm run dev.
-
-Thanks for trying my challenge!
+Thanks for trying our challenge!
 
 - Will
 `

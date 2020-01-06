@@ -70,7 +70,7 @@ function FilesTable({ files, activeFile, setActiveFile }) {
 }
 
 FilesTable.propTypes = {
-  files: PropTypes.arrayOf([PropTypes.object]),
+  files: PropTypes.arrayOf(PropTypes.object),
   activeFile: PropTypes.object,
   setActiveFile: PropTypes.func
 };

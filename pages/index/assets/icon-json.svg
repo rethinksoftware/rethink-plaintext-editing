@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="133px" height="170px" viewBox="0 0 133 170" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>icon-markdown</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-markdown" fill-rule="nonzero">
+            <path d="M85,-4.26325641e-14 L132,46.441875 L132,158 C132,164.627417 126.627417,170 120,170 L12,170 C5.372583,170 0,164.627417 0,158 L0,12 C0,5.372583 5.372583,-4.26325641e-14 12,-4.26325641e-14 L85,-4.26325641e-14 L85,-4.26325641e-14 Z" id="Combined-Shape" fill="#238A7A"></path>
+            <path d="M132.121976,46.5624023 L96.082997,46.5624023 C89.9606855,46.5624023 85,41.660293 85,35.6110156 L85,0 L132.121976,46.5624023 Z" id="Path" fill-opacity="0.16" fill="#000000"></path>
+        </g>
+    </g>
+</svg>

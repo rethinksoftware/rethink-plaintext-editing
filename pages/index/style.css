@@ -1,0 +1,205 @@
+:root {
+  --color-white: #FFFFFF;
+  --color-background: #F6F8F9;
+
+  --color-active: #1F53F1;
+  --color-active-highlight: #316ED81F;
+
+  --color-text-dark: #000A41;
+  --color-text-dark-mute: #607087;
+
+  --color-border: #E6E8EB;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  font-family: -apple-system, BlinkMacSystemFont,
+  "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--color-background);
+  display: flex;
+}
+
+.page aside {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+}
+
+.page aside header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  padding: 0 12px;
+}
+
+.page aside header .tagline {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-active);
+}
+
+.page aside header .description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-dark-mute);
+  margin-top: 30px;
+  max-width: 420px;
+}
+
+.page aside header h1 {
+  margin: 18px 0 0;
+  font-size: 44px;
+  line-height: 44px;
+  color: var(--color-text-dark);
+  font-weight: 500;
+}
+
+.page aside footer {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.page aside footer .link {
+  margin-top: 12px;
+}
+
+.page aside footer a {
+  color: var(--color-active);
+}
+
+
+
+
+
+.files {
+  width: 540px;
+  padding: 20px 0;
+}
+
+.files table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.files th {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-dark-mute);
+  text-align: left;
+  padding-bottom: 12px;
+}
+
+.files th:first-child {
+  padding-left: 12px;
+}
+
+.files td {
+  font-size: 14px;
+
+  line-height: 20px;
+  border: none;
+}
+
+.files .row {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-dark);
+  font-size: 16px;
+  height: 54px;
+  cursor: pointer;
+  transition: all 0.12s ease-in-out;
+}
+
+.files .row:hover {
+  background-color: var(--color-active-highlight);
+}
+
+.files .row.active {
+  color: #FFF;
+  background-color: var(--color-active);
+}
+
+.files .row:last-child {
+  border-bottom: none;
+}
+
+.files .file {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 12px;
+}
+
+.files .icon {
+  height: 31.56px;
+  width: 26px;
+  margin-right: 16px;
+}
+
+
+
+
+
+.editorWindow {
+  flex: 1;
+  border: 3px solid var(--color-border);
+  border-radius: 4px;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: center;
+}
+
+.editorWindow .empty {
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--color-text-dark-mute);
+}
+
+
+
+
+
+.preview {
+  width: 640px;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.16);
+  border-radius: 4px;
+}
+
+.preview .title {
+  width: 100%;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark-mute);
+  padding: 0 20px;
+  line-height: 40px;
+  background-color: var(--color-background);
+}
+
+.preview .content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  white-space: pre-wrap;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  padding: 20px;
+}

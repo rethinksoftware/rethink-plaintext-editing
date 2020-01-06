@@ -11,7 +11,7 @@ This is designed for creative freedom. Everybody loves to edit plaintext, but fe
 
 Once complete, I'd love to see how you think about editing plaintext. Email me a repo link at will@rethink.software.
 
-Thanks for trying our challenge!
+Thanks for trying my challenge!
 
 - Will
 `

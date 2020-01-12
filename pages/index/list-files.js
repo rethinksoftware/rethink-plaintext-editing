@@ -1,7 +1,7 @@
 export function listFiles() {
   const guide = new File(
     [
-      `The primary objective is to extend this application to support plaintext editing. Instead of this default preview, text files will open in an elegant editor built by you. The editor will support writing changes to the file.
+      `One objective is to extend this application to support plaintext editing. Instead of this default preview, text files will open in an elegant editor built by you. The editor will support writing changes to the file.
 
 All code and assets for this app live under https://github.com/rethinksoftware/plaintext-editing-challenge.
 

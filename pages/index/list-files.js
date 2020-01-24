@@ -1,13 +1,11 @@
 export function listFiles() {
   const guide = new File(
     [
-      `The objective is to make this application better in a perceptible way. Features this application has had include a text editor, markdown or code previews, and even file changes persisting through reloads.
+      `The objective is to improve this file browser in a perceptible way. Features to think about include a text editor, markdown or code previews, or file changes persisting across reloads.
 
-Install any npm packages you'd like.
+Install any npm packages or use any third party code you'd like.
 
-This is designed for creative freedom.
-
-Once complete, email me a repo link at will@rethink.software.
+Once complete, email me a GitHub repo link at will@rethink.software.
 
 Thanks for trying my challenge!
 

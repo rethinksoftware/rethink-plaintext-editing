@@ -7,7 +7,7 @@ import classNames from "classnames";
 import { listFiles } from "../lib/list-files";
 
 // Used below, these need to be registered
-import MarkdownEditor from "../components/MarkdownEditor";
+import MarkdownEditor from "../MarkdownEditor";
 import PlaintextEditor from "../components/PlaintextEditor";
 
 import IconPlaintextSVG from "../public/icon-plaintext.svg";

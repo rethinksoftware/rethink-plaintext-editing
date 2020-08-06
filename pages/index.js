@@ -4,16 +4,16 @@ import PropTypes from "prop-types";
 import path from "path";
 import classNames from "classnames";
 
-import { listFiles } from "../../lib/list-files";
+import { listFiles } from "../lib/list-files";
 
 // Used below, these need to be registered
-import MarkdownEditor from "../../components/MarkdownEditor";
-import PlaintextEditor from "../../components/PlaintextEditor";
+import MarkdownEditor from "../components/MarkdownEditor";
+import PlaintextEditor from "../components/PlaintextEditor";
 
-import IconPlaintextSVG from "../../public/icon-plaintext.svg";
-import IconMarkdownSVG from "../../public/icon-markdown.svg";
-import IconJavaScriptSVG from "../../public/icon-javascript.svg";
-import IconJSONSVG from "../../public/icon-json.svg";
+import IconPlaintextSVG from "../public/icon-plaintext.svg";
+import IconMarkdownSVG from "../public/icon-markdown.svg";
+import IconJavaScriptSVG from "../public/icon-javascript.svg";
+import IconJSONSVG from "../public/icon-json.svg";
 
 import css from "./style.css";
 

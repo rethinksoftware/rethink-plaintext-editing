@@ -15,7 +15,7 @@ import IconMarkdownSVG from "../public/icon-markdown.svg";
 import IconJavaScriptSVG from "../public/icon-javascript.svg";
 import IconJSONSVG from "../public/icon-json.svg";
 
-import css from "./style.css";
+import css from "./style.module.css";
 
 const TYPE_TO_ICON = {
   "text/plain": IconPlaintextSVG,

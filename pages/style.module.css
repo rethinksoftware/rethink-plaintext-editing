@@ -1,30 +1,31 @@
 :root {
-  --color-white: #FFFFFF;
-  --color-background: #F6F8F9;
+  --color-white: #ffffff;
+  --color-background: #f6f8f9;
 
-  --color-active: #1F53F1;
-  --color-active-highlight: #316ED81F;
+  --color-active: #1f53f1;
+  --color-active-highlight: #316ed81f;
 
-  --color-text-dark: #000A41;
+  --color-text-dark: #000a41;
   --color-text-dark-mute: #607087;
 
-  --color-border: #E6E8EB;
+  --color-border: #e6e8eb;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
+/* Layout */
 .page {
-  font-family: -apple-system, BlinkMacSystemFont,
-  "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans",
-  "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   background-color: var(--color-background);
   display: flex;
 }
@@ -80,10 +81,7 @@ html, body {
   color: var(--color-active);
 }
 
-
-
-
-
+/* Files Table */
 .files {
   width: 540px;
   padding: 20px 0;
@@ -127,7 +125,7 @@ html, body {
 }
 
 .files .row.active {
-  color: #FFF;
+  color: #fff;
   background-color: var(--color-active);
 }
 
@@ -150,10 +148,7 @@ html, body {
   margin-right: 16px;
 }
 
-
-
-
-
+/* Editor and Preview */
 .editorWindow {
   flex: 1;
   border: 3px solid var(--color-border);
@@ -172,10 +167,6 @@ html, body {
   line-height: 16px;
   color: var(--color-text-dark-mute);
 }
-
-
-
-
 
 .preview {
   width: 640px;
@@ -200,6 +191,7 @@ html, body {
   line-height: 1.6;
   color: var(--color-text-dark);
   white-space: pre-wrap;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
   padding: 20px;
 }

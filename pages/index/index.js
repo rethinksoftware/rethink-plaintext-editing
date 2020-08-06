@@ -4,15 +4,16 @@ import PropTypes from "prop-types";
 import path from "path";
 import classNames from "classnames";
 
-import { listFiles } from "./list-files";
+import { listFiles } from "../../lib/list-files";
 
-import MarkdownEditor from "./MarkdownEditor";
-import PlaintextEditor from "./PlaintextEditor";
+// Used below, these need to be registered
+import MarkdownEditor from "../../components/MarkdownEditor";
+import PlaintextEditor from "../../components/PlaintextEditor";
 
-import IconPlaintextSVG from "./assets/icon-plaintext.svg";
-import IconMarkdownSVG from "./assets/icon-markdown.svg";
-import IconJavaScriptSVG from "./assets/icon-javascript.svg";
-import IconJSONSVG from "./assets/icon-json.svg";
+import IconPlaintextSVG from "../../public/icon-plaintext.svg";
+import IconMarkdownSVG from "../../public/icon-markdown.svg";
+import IconJavaScriptSVG from "../../public/icon-javascript.svg";
+import IconJSONSVG from "../../public/icon-json.svg";
 
 import css from "./style.css";
 
@@ -114,7 +115,7 @@ function PlaintextFilesChallenge() {
   const write = file => {
     console.log("Writing... ", file.name);
 
-    // TODO: Write the file to the `files` array in state
+    // TODO: Write the file to the `files` array
   };
 
   const Editor = activeFile ? REGISTERED_EDITORS[activeFile.type] : null;
@@ -127,7 +128,7 @@ function PlaintextFilesChallenge() {
       <aside>
         <header>
           <div className={css.tagline}>Rethink Engineering Challenge</div>
-          <h1>Plaintext: Why So Plain</h1>
+          <h1>Seasoning Plaintext</h1>
           <div className={css.description}>
             Let{"'"}s have fun with files and JavaScript. What could be more fun
             than rendering and editing plaintext? Not much, as it turns out.
@@ -148,8 +149,7 @@ function PlaintextFilesChallenge() {
             &nbsp;—&nbsp;Frontend Engineering Challenge
           </div>
           <div className={css.link}>
-            Questions? Feedback? Email{" "}
-            <a href="mailto:will@rethink.software">will@rethink.software</a>
+            Questions? Feedback? Email us at jobs@rethink.software
           </div>
         </footer>
       </aside>

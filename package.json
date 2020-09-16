@@ -6,10 +6,16 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "classnames": "^2.2.6",
+    "emotion": "^10.0.27",
+    "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.19",
     "next": "^9.5.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-file-reader": "^1.1.4",
+    "slate": "^0.58.4",
+    "slate-history": "^0.58.4",
+    "slate-react": "^0.58.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

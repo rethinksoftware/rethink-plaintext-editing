@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const millionObjects = [...]
+const millionObjects = [...{}]
 
 const MillionObjects = () => {
 
@@ -10,7 +10,7 @@ const MillionObjects = () => {
     setSearchTerm(event.target.value)
   }
 
-  const renderMillionObjects = () => {
+  const renderObjects = () => {
     let objectsToRender = millionObjects.filter(object => Object.values(object).includes(searchTerm))
     return objectsToRender.map(object => <Object name={object.name} content={object.content} />)
   }
@@ -18,7 +18,7 @@ const MillionObjects = () => {
   return (
     <section>
       <input onChange={() => handleSearch()}></input>
-      {renderMillionObjects()}
+      {renderObjects()}
     </section>
   )
 }

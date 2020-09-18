@@ -9,6 +9,7 @@
     "lodash": "^4.17.19",
     "next": "^9.5.1",
     "react": "^16.13.1",
+    "react-contenteditable": "^3.3.5",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {

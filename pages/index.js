@@ -25,6 +25,25 @@ const TYPE_TO_ICON = {
 };
 
 function FilesTable({ files, activeFile, setActiveFile }) {
+
+  const up = () => {
+    let index = files.indexOf(activeFile)
+    let newIndex = index - 1
+    if (newIndex === -1) {
+      newIndex = files.length - 1
+    }
+    setActiveFile(files[newIndex])
+  }
+  
+  const down = () => {
+    let index = files.indexOf(activeFile)
+    let newIndex = index + 1
+    if (newIndex === files.length) {
+      newIndex = 0
+    }
+    setActiveFile(files[newIndex])
+  }
+
   return (
     <div className={css.files}>
       <table>
@@ -35,7 +54,7 @@ function FilesTable({ files, activeFile, setActiveFile }) {
           </tr>
         </thead>
         <tbody>
-          {files.map(file => (
+          {files.map((file, index) => (
             <tr
               key={file.name}
               className={classNames(
@@ -66,9 +85,16 @@ function FilesTable({ files, activeFile, setActiveFile }) {
           ))}
         </tbody>
       </table>
+      <div>
+        <button onClick={() => up()}>Up</button>
+        <button onClick={() => down()}>Down</button>
+      </div>
     </div>
   );
 }
+
+
+
 
 FilesTable.propTypes = {
   files: PropTypes.arrayOf(PropTypes.object),
@@ -99,7 +125,7 @@ Previewer.propTypes = {
 
 // Uncomment keys to register editors for media types
 const REGISTERED_EDITORS = {
-  // "text/plain": PlaintextEditor,
+  "text/plain": PlaintextEditor,
   // "text/markdown": MarkdownEditor,
 };
 
@@ -165,9 +191,18 @@ function PlaintextFilesChallenge() {
         {!activeFile && (
           <div className={css.empty}>Select a file to view or edit</div>
         )}
+
+        
       </main>
+
     </div>
   );
+}
+
+const Arrow = (props) => {
+  <div className={`arrow ${props.direction}`}>
+    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-alt-circle-up" class="svg-inline--fa fa-arrow-alt-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 504c137 0 248-111 248-248S393 8 256 8 8 119 8 256s111 248 248 248zm0-448c110.5 0 200 89.5 200 200s-89.5 200-200 200S56 366.5 56 256 145.5 56 256 56zm20 328h-40c-6.6 0-12-5.4-12-12V256h-67c-10.7 0-16-12.9-8.5-20.5l99-99c4.7-4.7 12.3-4.7 17 0l99 99c7.6 7.6 2.2 20.5-8.5 20.5h-67v116c0 6.6-5.4 12-12 12z"></path></svg>
+  </div>
 }
 
 export default PlaintextFilesChallenge;

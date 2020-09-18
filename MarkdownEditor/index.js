@@ -8,7 +8,7 @@ function MarkdownEditor({ file, write }) {
   return (
     <div className={css.editor}>
       <h3>TODO</h3>
-      <i>text/markdown</i>
+      <i>{file[0]}</i>
     </div>
   );
 }

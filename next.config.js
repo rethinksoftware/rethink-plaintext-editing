@@ -2,7 +2,10 @@ const withCSS = require("@zeit/next-css");
 const pipe = require("lodash/fp/pipe");
 
 module.exports = pipe(withCSS)({
-  cssModules: true,
+  cssModules: false,
+  cssLoaderOptions: {
+    url: true
+  },
   webpack: config => {
     // Load SVGs inline
     config.module.rules.push({

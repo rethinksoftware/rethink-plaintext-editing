@@ -10,7 +10,9 @@
     "next": "^9.5.1",
     "react": "^16.13.1",
     "react-contenteditable": "^3.3.5",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-mde": "^11.0.0",
+    "showdown": "^1.9.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

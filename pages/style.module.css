@@ -86,6 +86,7 @@ body {
 .files {
   width: 540px;
   padding: 20px 0;
+  position: relative;
 }
 
 .files table {
@@ -98,7 +99,11 @@ body {
   font-weight: 600;
   color: var(--color-text-dark-mute);
   text-align: left;
-  padding-bottom: 12px;
+  padding: 10px 0;
+}
+
+.th_name, .th_date {
+  cursor: pointer;
 }
 
 .files th:first-child {
@@ -107,7 +112,6 @@ body {
 
 .files td {
   font-size: 14px;
-
   line-height: 20px;
   border: none;
 }
@@ -147,6 +151,28 @@ body {
   height: 31.56px;
   width: 26px;
   margin-right: 16px;
+}
+
+.files .buttons {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.files .up svg {
+  width: 2rem;
+  cursor: pointer;
+  color: rgb(100, 100, 100);
+}
+
+.files .down svg {
+  width: 2rem;
+  transform: rotate(180deg);
+  cursor: pointer;
+  color: rgb(100, 100, 100);
 }
 
 /* Editor and Preview */

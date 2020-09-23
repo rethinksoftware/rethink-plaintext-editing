@@ -5,37 +5,37 @@ export function listFiles() {
 
 Install any npm packages or use any third party code you'd like, but please make sure it is clear when you do so.
 
-Once complete, send us a GitHub repo link.
+Once complete, send us a forked GitHub repo link.
 
 Thanks for trying our challenge!
 
 - Rethink Engineering
 `
     ],
-    "/README.txt",
+    '/README.txt',
     {
-      type: "text/plain",
-      lastModified: new Date("2020-01-05T16:39:00")
+      type: 'text/plain',
+      lastModified: new Date('2020-01-05T16:39:00')
     }
   );
 
   const plain = new File(
-    ["Just some text looking for an editor"],
-    "/plain.txt",
+    ['Just some text looking for an editor'],
+    '/plain.txt',
     {
-      type: "text/plain",
-      lastModified: new Date("1995-12-17T03:24:00")
+      type: 'text/plain',
+      lastModified: new Date('1995-12-17T03:24:00')
     }
   );
 
   const water = new File(
     [
-      "Increasing water scarcity is an extremely dangerous symptom of a warming planet. The World Health Organization estimates that half of the global population will live in water-stressed areas by 2025. In 2008, the CEO of DOW Chemical said, “Water is the oil of the 21st century.” There have been 9 major conflicts over oil since 1932."
+      'Increasing water scarcity is an extremely dangerous symptom of a warming planet. The World Health Organization estimates that half of the global population will live in water-stressed areas by 2025. In 2008, the CEO of DOW Chemical said, “Water is the oil of the 21st century.” There have been 9 major conflicts over oil since 1932.'
     ],
-    "/water.txt",
+    '/water.txt',
     {
-      type: "text/plain",
-      lastModified: new Date("1998-12-17T04:24:00")
+      type: 'text/plain',
+      lastModified: new Date('1998-12-17T04:24:00')
     }
   );
 
@@ -46,10 +46,10 @@ Thanks for trying our challenge!
 
 The *quick* brown fox, jumped **over** the lazy [dog](https://en.wikipedia.org/wiki/Dog).`
     ],
-    "/fancy.md",
+    '/fancy.md',
     {
-      type: "text/markdown",
-      lastModified: new Date("2018-09-14T09:32:17")
+      type: 'text/markdown',
+      lastModified: new Date('2018-09-14T09:32:17')
     }
   );
 
@@ -68,10 +68,10 @@ export default initialValue => {
   return [state, stateRef, setState];
 };`
     ],
-    "/use-ref-state.js",
+    '/use-ref-state.js',
     {
-      type: "text/javascript",
-      lastModified: new Date("2019-04-01T12:15:01")
+      type: 'text/javascript',
+      lastModified: new Date('2019-04-01T12:15:01')
     }
   );
 
@@ -83,10 +83,10 @@ export default initialValue => {
     "rights" : [ "admin", "editor", "contributor" ]
 }`
     ],
-    "/document.json",
+    '/document.json',
     {
-      type: "application/json",
-      lastModified: new Date("2011-07-29T16:01:35")
+      type: 'application/json',
+      lastModified: new Date('2011-07-29T16:01:35')
     }
   );
 

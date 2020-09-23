@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import PropTypes from "prop-types";
-import path from "path";
-import classNames from "classnames";
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
+import path from 'path';
+import classNames from 'classnames';
 
-import { listFiles } from "../lib/list-files";
+import { listFiles } from '../files';
 
 // Used below, these need to be registered
-import MarkdownEditor from "../MarkdownEditor";
-import PlaintextEditor from "../components/PlaintextEditor";
+import MarkdownEditor from '../MarkdownEditor';
+import PlaintextEditor from '../components/PlaintextEditor';
 
-import IconPlaintextSVG from "../public/icon-plaintext.svg";
-import IconMarkdownSVG from "../public/icon-markdown.svg";
-import IconJavaScriptSVG from "../public/icon-javascript.svg";
-import IconJSONSVG from "../public/icon-json.svg";
+import IconPlaintextSVG from '../public/icon-plaintext.svg';
+import IconMarkdownSVG from '../public/icon-markdown.svg';
+import IconJavaScriptSVG from '../public/icon-javascript.svg';
+import IconJSONSVG from '../public/icon-json.svg';
 
-import css from "./style.module.css";
+import css from './style.module.css';
 
 const TYPE_TO_ICON = {
-  "text/plain": IconPlaintextSVG,
-  "text/markdown": IconMarkdownSVG,
-  "text/javascript": IconJavaScriptSVG,
-  "application/json": IconJSONSVG
+  'text/plain': IconPlaintextSVG,
+  'text/markdown': IconMarkdownSVG,
+  'text/javascript': IconJavaScriptSVG,
+  'application/json': IconJSONSVG
 };
 
 function FilesTable({ files, activeFile, setActiveFile }) {
@@ -40,7 +40,7 @@ function FilesTable({ files, activeFile, setActiveFile }) {
               key={file.name}
               className={classNames(
                 css.row,
-                activeFile && activeFile.name === file.name ? css.active : ""
+                activeFile && activeFile.name === file.name ? css.active : ''
               )}
               onClick={() => setActiveFile(file)}
             >
@@ -55,11 +55,11 @@ function FilesTable({ files, activeFile, setActiveFile }) {
               </td>
 
               <td>
-                {new Date(file.lastModified).toLocaleDateString("en-US", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric"
+                {new Date(file.lastModified).toLocaleDateString('en-US', {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
                 })}
               </td>
             </tr>
@@ -77,7 +77,7 @@ FilesTable.propTypes = {
 };
 
 function Previewer({ file }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -113,7 +113,7 @@ function PlaintextFilesChallenge() {
   }, []);
 
   const write = file => {
-    console.log("Writing... ", file.name);
+    console.log('Writing soon... ', file.name);
 
     // TODO: Write the file to the `files` array
   };
@@ -145,7 +145,7 @@ function PlaintextFilesChallenge() {
 
         <footer>
           <div className={css.link}>
-            <a href="https://rethink.software">Rethink Software</a>
+            <a href="https://v3.rethink.software/jobs">Rethink Software</a>
             &nbsp;—&nbsp;Frontend Engineering Challenge
           </div>
           <div className={css.link}>

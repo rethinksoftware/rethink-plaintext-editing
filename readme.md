@@ -4,11 +4,11 @@ This is our frontend coding challenge. It gives us a chance to see your abilitie
 
 To run the challenge:
 
-- Clone or download this repo and `cd rethink-plaintext-editing`
-- Run `npm install && npm run dev`
+- FORK this repo
+- Download forked repo and run `npm install && npm run dev`
 - Open `localhost:3000` in your browser
 - Enjoy
 
-Once complete, please email a link to a GitHub repo of clean, tested code to us. We will use Chrome to run it.
+Once complete, please email us a link to your forked repo with clean, tested code. We will use Chrome to run it.
 
 - Rethink Engineering

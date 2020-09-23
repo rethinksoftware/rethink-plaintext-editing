@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import css from "./style.css";
+import css from './style.css';
 
 function PlaintextEditor({ file, write }) {
   console.log(file, write);

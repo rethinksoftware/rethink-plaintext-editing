@@ -36,5 +36,8 @@
     "rules": {
       "no-console": 0
     }
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

@@ -1,9 +1,22 @@
 .editor {
-  width: 640px;
+  width: 100%;
+  height: 80%;
   background-color: var(--color-white);
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.16);
+  border-radius: 4px;
+}
+
+.editor .title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark-mute);
+  padding: 0 20px;
+  line-height: 40px;
+  background-color: var(--color-background);
 }

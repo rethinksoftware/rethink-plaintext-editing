@@ -177,12 +177,30 @@ body {
 
 .preview .title {
   width: 100%;
+  display: flex;
+  flex-direction: row;
   border-bottom: 1px solid var(--color-border);
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text-dark-mute);
   padding: 0 20px;
   line-height: 40px;
+  background-color: var(--color-background);
+}
+
+.preview .title button {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark-mute);
+  background-color: var(--color-white);
+  border-color: var(--color-border);
+  box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.16);
+  border-radius: 4px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.preview .title button:hover {
   background-color: var(--color-background);
 }
 

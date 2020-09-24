@@ -87,7 +87,11 @@ function Previewer({ file }) {
 
   return (
     <div className={css.preview}>
-      <div className={css.title}>{path.basename(file.name)}</div>
+      <div className={css.title}>
+        {path.basename(file.name)}
+        <div style={{ flex: 1 }}></div>
+        <button>{'Edit'}</button>
+      </div>
       <div className={css.content}>{value}</div>
     </div>
   );
@@ -98,8 +102,10 @@ Previewer.propTypes = {
 };
 
 // Uncomment keys to register editors for media types
+// There are currently only editors for .txt and .md files. Need to create
+// new directories and components for .js and .json files
 const REGISTERED_EDITORS = {
-  // "text/plain": PlaintextEditor,
+  "text/plain": PlaintextEditor
   // "text/markdown": MarkdownEditor,
 };
 
@@ -112,6 +118,14 @@ function PlaintextFilesChallenge() {
     setFiles(files);
   }, []);
 
+
+  // Function passed into Editor component which will write the file changes
+  // made in the editor to the 'files' array which is local storage for
+  // the files presented. If you only update the files array, when the page
+  // reloads the changes will be erased as the files array is initialized to
+  // the files created in Files.js. Would need to store the files persistently
+  // somewhere to allow for changes to be saved after reloads. This function
+  // would then need to update the stored files.
   const write = file => {
     console.log('Writing soon... ', file.name);
 

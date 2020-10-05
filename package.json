@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@tinymce/tinymce-react": "^3.7.0",
     "@zeit/next-css": "^1.0.1",
+    "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
+    "draft-js": "^0.11.7",
     "lodash": "^4.17.19",
     "next": "^9.5.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "rich-markdown-editor": "^11.0.1",
+    "styled-components": "^5.2.0",
+    "tinymce": "^5.5.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

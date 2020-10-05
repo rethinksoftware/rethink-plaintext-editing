@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from '@tinymce/tinymce-react';
-import css from './style.css';
+import css from '../MarkdownEditor/style.css';
 
 function PlaintextEditor({ file, write }) {
   let [value, setValue] = useState("nothing yet");
@@ -26,16 +26,16 @@ function PlaintextEditor({ file, write }) {
       <Editor
         // API KEY is currently exposed, fix later!
         apiKey="4h9kebmx706bddhgtwvn6i7osr50p6p7e0pva2pce8ou2voq"
-        initialValue={localStorage.getItem(file.name) || value}
+        initialValue={localStorage.getItem(file.name)|| value}
         id={file.name + 'Editor'}
         // content= {localStorage.getItem(file.name)}
         init={{
           height: 500,
-          menubar: "view",
-          plugins: 'preview',
+          menubar: "tools",
+          plugins: 'code',
           plugin_preview_height: 500,
           toolbar:
-            ['preview',
+            ['code',
             'undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
              bullist numlist outdent indent | removeformat | help']

@@ -19,7 +19,7 @@ function MarkdownEditor({ file, write }) {
       // if both don't exist, the original text gets called
       if (file.content) {
         setValue(file.content);
-      } else if (changedTxt!==null) {
+      } else if (changedTxt !== null) {
         setValue(changedTxt);
       } else {
         let initText = await file.text();
@@ -37,7 +37,6 @@ function MarkdownEditor({ file, write }) {
     const text = value();
     write(file, text);
   };
-  
 
   // save button grabs the content from local storage and writes it to the file
   // the save button is mostly for the user to feel assured

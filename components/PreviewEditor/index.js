@@ -67,7 +67,7 @@ function PreviewEditor({ file, write }) {
   return editorLoaded && textLoaded ? (
     <div className={css.editor}>
       <LiveProvider code={usableCode(value)}>
-        <LiveEditor onChange={handleChange} className={css.editor}/>
+        <LiveEditor onChange={handleChange} className={css.editor} />
         <LivePreview />
         <LiveError />
       </LiveProvider>

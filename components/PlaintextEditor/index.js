@@ -40,7 +40,6 @@ function PlaintextEditor({ file, write }) {
   // the save button is mostly for the user to feel assured
   const handleSave = () => {
     // let changedTxt = localStorage.getItem(file.name);
-    console.log(value);
     write(file, value);
     toast.notify('', {
       duration: 2,

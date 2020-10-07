@@ -43,7 +43,6 @@ function PreviewEditor({ file, write }) {
   const handleSave = () => {
     // let changedTxt = localStorage.getItem(file.name);
     write(file, value);
-    console.log(value);
     toast.notify('', {
       duration: 2,
       type: 'success',

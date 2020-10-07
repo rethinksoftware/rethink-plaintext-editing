@@ -6,4 +6,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
+  border: 2px solid #add8e6;
+}
+
+.save {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid #73ad21;
+  color: #73ad21;
+  background-color: white;
+}
+
+.delete {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid red;
+  color: red;
+  background-color: white;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.save:hover {
+  opacity: 0.5;
 }

@@ -1,77 +1,62 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
-import css from './style.css';
+import css from '../PlaintextEditor/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { toast, ToastContainer } from 'react-nextjs-toast';
 
-function PlaintextEditor({ file, write }) {
+function MarkdownEditor({ file, write }) {
   const currentRef = useRef();
   let [value, setValue] = useState('nothing yet');
+  const [textLoaded, setTextLoaded] = useState(false);
   const [editorLoaded, setEditorLoaded] = useState(false);
-  const { CKEditor, ClassicEditor } = currentRef.current || {};
+  const { Editor } = currentRef.current || {};
 
   useEffect(() => {
-    // this block loads the existing file text or changed content
     (async () => {
       let changedTxt = localStorage.getItem(file.name);
+      // first checks if there is file content, then checks the local storage
+      // if both don't exist, the original text gets called
       if (file.content) {
         setValue(file.content);
-      } else if (changedTxt !== null) {
+      } else if (changedTxt!==null) {
         setValue(changedTxt);
       } else {
-        setValue(await file.text());
+        let initText = await file.text();
+        setValue(initText);
       }
+      setTextLoaded(true);
     })();
-    // this block initializes the ck editor instance on file change
     currentRef.current = {
-      CKEditor: require('@ckeditor/ckeditor5-react'),
-      ClassicEditor: require('@ckeditor/ckeditor5-build-classic')
+      Editor: require('rich-markdown-editor').default
     };
     setEditorLoaded(true);
   }, [file]);
 
-  const handleEditorChange = content => {
-    write(file, content);
-    setValue(content);
+  const handleChange = value => {
+    const text = value();
+    write(file, text);
   };
+  
 
   // save button grabs the content from local storage and writes it to the file
   // the save button is mostly for the user to feel assured
   const handleSave = () => {
-    // let changedTxt = localStorage.getItem(file.name);
-    console.log(value);
-    write(file, value);
+    let changedTxt = localStorage.getItem(file.name);
+    write(file, changedTxt);
     toast.notify('', {
       duration: 2,
       type: 'success',
       title: '🦄 Saved!'
     });
   };
-  const clearCurrent = () => {
-    setValue(' ');
-  };
 
-  // editor and save button
-  return editorLoaded ? (
+  return editorLoaded && textLoaded ? (
     <div className={css.editor}>
-      <CKEditor
-        editor={ClassicEditor}
-        data={value}
-        onInit={editor => {
-          console.log('Editor is ready to use!', editor);
-        }}
-        onChange={(event, editor) => {
-          const data = editor.getData();
-          handleEditorChange(data);
-        }}
-      />
+      <Editor defaultValue={value} value={value} onChange={handleChange} />
       <br />
       <ToastContainer />
       <div className={css.buttons}>
-        <Button className={css.delete} variant="danger" onClick={clearCurrent}>
-          Clear
-        </Button>
         <Button className={css.save} variant="success" onClick={handleSave}>
           Save
         </Button>
@@ -82,9 +67,9 @@ function PlaintextEditor({ file, write }) {
   );
 }
 
-PlaintextEditor.propTypes = {
+MarkdownEditor.propTypes = {
   file: PropTypes.object,
   write: PropTypes.func
 };
 
-export default PlaintextEditor;
+export default MarkdownEditor;

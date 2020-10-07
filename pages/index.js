@@ -7,9 +7,9 @@ import classNames from 'classnames';
 import { listFiles } from '../files';
 
 // Used below, these need to be registered
-import MarkdownEditor from '../MarkdownEditor';
+import MarkdownEditor from '../components/MarkdownEditor';
 import PlaintextEditor from '../components/PlaintextEditor';
-import JavascriptEditor from '../JavascriptEditor'
+import JavascriptEditor from '../components/PreviewEditor';
 import IconPlaintextSVG from '../public/icon-plaintext.svg';
 import IconMarkdownSVG from '../public/icon-markdown.svg';
 import IconJavaScriptSVG from '../public/icon-javascript.svg';
@@ -100,10 +100,10 @@ Previewer.propTypes = {
 
 // Uncomment keys to register editors for media types
 const REGISTERED_EDITORS = {
-  "text/plain": PlaintextEditor,
-  "text/markdown": MarkdownEditor,
+  'text/plain': PlaintextEditor,
+  'text/markdown': MarkdownEditor,
   'text/javascript': JavascriptEditor,
-  'application/json': JavascriptEditor
+  'application/json': PlaintextEditor
 };
 
 function PlaintextFilesChallenge() {
@@ -115,35 +115,32 @@ function PlaintextFilesChallenge() {
     setFiles(files);
   }, []);
 
-  const weekday = new Array(7)
-  weekday[0] = "Sunday";
-  weekday[1] = "Monday";
-  weekday[2] = "Tuesday";
-  weekday[3] = "Wednesday";
-  weekday[4] = "Thursday";
-  weekday[5] = "Friday";
-  weekday[6] = "Saturday";
+  const weekday = new Array(7);
+  weekday[0] = 'Sunday';
+  weekday[1] = 'Monday';
+  weekday[2] = 'Tuesday';
+  weekday[3] = 'Wednesday';
+  weekday[4] = 'Thursday';
+  weekday[5] = 'Friday';
+  weekday[6] = 'Saturday';
 
   function formatDate() {
-    const today = new Date ()
-    let day = today.getDate()
-    let month = today.getMonth()
-    let year = today.getFullYear()
-    let currentDay = today.getDay()
+    const today = new Date();
+    let day = today.getDate();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    let currentDay = today.getDay();
 
-    return weekday[currentDay]+", "+month+day+", "+year
+    return weekday[currentDay] + ', ' + month + day + ', ' + year;
   }
   const write = (file, content) => {
-    // console.log('Writing soon... ', file.name, file);
     // TODO: Write the file to the `files` array
-    localStorage.setItem(file.name, content)
+    localStorage.setItem(file.name, content);
     files.map(current => {
       if (current.name === file.name) {
-        current.content = content
-        //current.lastModifiedDate = formatDate()
+        current.content = content;
       }
-    })
-    console.log(files)
+    });
   };
 
   const Editor = activeFile ? REGISTERED_EDITORS[activeFile.type] : null;

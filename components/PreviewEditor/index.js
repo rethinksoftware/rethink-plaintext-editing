@@ -1,37 +1,39 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
-import css from './style.css';
+import css from '../PlaintextEditor/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { toast, ToastContainer } from 'react-nextjs-toast';
+import { LiveProvider, LivePreview, LiveError } from 'react-live';
 
-function PlaintextEditor({ file, write }) {
+function PreviewEditor({ file, write }) {
   const currentRef = useRef();
   let [value, setValue] = useState('nothing yet');
+  const [textLoaded, setTextLoaded] = useState(false);
   const [editorLoaded, setEditorLoaded] = useState(false);
-  const { CKEditor, ClassicEditor } = currentRef.current || {};
-
+  const { LiveEditor } = currentRef.current || {};
   useEffect(() => {
-    // this block loads the existing file text or changed content
     (async () => {
       let changedTxt = localStorage.getItem(file.name);
+      // first checks if there is file content, then checks the local storage
+      // if both don't exist, the original text gets called
       if (file.content) {
         setValue(file.content);
       } else if (changedTxt !== null) {
         setValue(changedTxt);
       } else {
-        setValue(await file.text());
+        let initText = await file.text();
+        setValue(initText);
       }
+      setTextLoaded(true);
     })();
-    // this block initializes the ck editor instance on file change
     currentRef.current = {
-      CKEditor: require('@ckeditor/ckeditor5-react'),
-      ClassicEditor: require('@ckeditor/ckeditor5-build-classic')
+      LiveEditor: require('react-live').LiveEditor
     };
     setEditorLoaded(true);
   }, [file]);
 
-  const handleEditorChange = content => {
+  const handleChange = content => {
     write(file, content);
     setValue(content);
   };
@@ -40,32 +42,36 @@ function PlaintextEditor({ file, write }) {
   // the save button is mostly for the user to feel assured
   const handleSave = () => {
     // let changedTxt = localStorage.getItem(file.name);
-    console.log(value);
     write(file, value);
+    console.log(value);
     toast.notify('', {
       duration: 2,
       type: 'success',
       title: '🦄 Saved!'
     });
   };
+
   const clearCurrent = () => {
-    setValue(' ');
+    setValue('');
   };
 
+  // this block creates usable code for the preview
+  const usableCode = codeText => {
+    let length = codeText.length;
+    if (codeText.substring(0, 4) === '<p>') {
+      return codeText.substring(3, length - 3);
+    } else {
+      return codeText;
+    }
+  };
   // editor and save button
-  return editorLoaded ? (
+  return editorLoaded && textLoaded ? (
     <div className={css.editor}>
-      <CKEditor
-        editor={ClassicEditor}
-        data={value}
-        onInit={editor => {
-          console.log('Editor is ready to use!', editor);
-        }}
-        onChange={(event, editor) => {
-          const data = editor.getData();
-          handleEditorChange(data);
-        }}
-      />
+      <LiveProvider code={usableCode(value)}>
+        <LiveEditor onChange={handleChange} className={css.editor}/>
+        <LivePreview />
+        <LiveError />
+      </LiveProvider>
       <br />
       <ToastContainer />
       <div className={css.buttons}>
@@ -82,9 +88,9 @@ function PlaintextEditor({ file, write }) {
   );
 }
 
-PlaintextEditor.propTypes = {
+PreviewEditor.propTypes = {
   file: PropTypes.object,
   write: PropTypes.func
 };
 
-export default PlaintextEditor;
+export default PreviewEditor;

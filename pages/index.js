@@ -128,10 +128,10 @@ function PlaintextFilesChallenge() {
       <aside>
         <header>
           <div className={css.tagline}>Rethink Engineering Challenge</div>
-          <h1>Seasoning Plaintext</h1>
+          <h1>Fun With Plaintext</h1>
           <div className={css.description}>
-            Let{"'"}s have fun with files and JavaScript. What could be more fun
-            than rendering and editing plaintext? Not much, as it turns out.
+            Let{"'"}s explore files in JavaScript. What could be more fun than
+            rendering and editing plaintext? Not much, as it turns out.
           </div>
         </header>
 

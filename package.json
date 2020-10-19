@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^23.0.0",
+    "@ckeditor/ckeditor5-markdown-gfm": "^23.0.0",
+    "@ckeditor/ckeditor5-react": "^2.1.0",
     "@zeit/next-css": "^1.0.1",
+    "ckeditor5": "^23.0.0",
     "classnames": "^2.2.6",
+    "html-react-parser": "^0.14.0",
     "lodash": "^4.17.19",
     "next": "^9.5.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-markdown": "^4.3.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

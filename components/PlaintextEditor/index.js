@@ -1,9 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
-import parse from 'html-react-parser';
 import PropTypes from 'prop-types';
 import css from './style.css';
 
-export default function PlaintextEditor({ file, write }) {
+export default function PlaintextEditor({ file, write, setActiveFileContent }) {
   const currentRef = useRef();
   const [retrievedContent, setRetrievedContent] = useState(false);
   let [value, setValue] = useState('');
@@ -30,6 +29,7 @@ export default function PlaintextEditor({ file, write }) {
   const setText = content => {
     write(file, content);
     setValue(content);
+    setActiveFileContent(content);
   };
 
   return retrievedContent ? (

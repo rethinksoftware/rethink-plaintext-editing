@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import parse from 'html-react-parser';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import path from 'path';
@@ -76,19 +77,29 @@ FilesTable.propTypes = {
   setActiveFile: PropTypes.func
 };
 
-function Previewer({ file }) {
+function Previewer({ file, activeFileContent }) {
   const [value, setValue] = useState('');
 
   useEffect(() => {
     (async () => {
-      setValue(await file.text());
-    })();
-  }, [file]);
+      let changedTxt = localStorage.getItem(file.name);
+      if (file.content) {
+        setValue(file.content);
+      } else if (changedTxt !== null) {
+        setValue(changedTxt);
+      } else {
+        setValue(await file.text());
+      }
+    })()}, [file]);
+
+  const writePreview = content => {
+    setValue(content);
+  };
 
   return (
     <div className={css.preview}>
       <div className={css.title}>{path.basename(file.name)}</div>
-      <div className={css.content}>{value}</div>
+      <div className={css.content}>{activeFileContent ? parse(activeFileContent) : parse(value)}</div>
     </div>
   );
 }
@@ -100,19 +111,21 @@ Previewer.propTypes = {
 // Uncomment keys to register editors for media types
 const REGISTERED_EDITORS = {
   "text/plain": PlaintextEditor,
-  // "text/markdown": MarkdownEditor,
+  "text/markdown": MarkdownEditor,
 };
 
 function PlaintextFilesChallenge() {
   const [files, setFiles] = useState([]);
   const [activeFile, setActiveFile] = useState(null);
+  const [activeFileContent, setActiveFileContent] = useState('');
 
   useEffect(() => {
     const files = listFiles();
+    // console.log("GOT HERE")
     setFiles(files);
   }, []);
 
-  const write = file => {
+  const write = (file, content) => {
     console.log('Writing soon... ', file.name);
     // TODO: Write the file to the `files` array
     files.map(currentFile => {
@@ -121,8 +134,7 @@ function PlaintextFilesChallenge() {
       }
     });
     localStorage.setItem(file.name, content);
-
-  };
+  }
 
   const Editor = activeFile ? REGISTERED_EDITORS[activeFile.type] : null;
 
@@ -142,6 +154,7 @@ function PlaintextFilesChallenge() {
         </header>
 
         <FilesTable
+        /// CHANGE THIS BACK
           files={files}
           activeFile={activeFile}
           setActiveFile={setActiveFile}
@@ -163,8 +176,8 @@ function PlaintextFilesChallenge() {
       <main className={css.editorWindow}>
         {activeFile && (
           <>
-            {Editor && <Editor file={activeFile} write={write} />}
-            {!Editor && <Previewer file={activeFile} />}
+            {Editor && <Editor file={activeFile} write={write} setActiveFileContent={setActiveFileContent}/>}
+            {Editor && <Previewer file={activeFile} activeFileContent={activeFileContent}/>}
           </>
         )}
 

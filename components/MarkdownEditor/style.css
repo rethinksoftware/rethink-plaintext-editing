@@ -2,3 +2,24 @@
   width: 640px;
   background-color: var(--color-white);
 }
+
+.editor .title {
+  width: 100%;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark-mute);
+  padding: 0 20px;
+  line-height: 40px;
+  background-color: var(--color-background);
+}
+
+.editor .content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  white-space: pre-wrap;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
+  padding: 20px;
+}

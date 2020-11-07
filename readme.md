@@ -12,3 +12,16 @@ To run the challenge:
 Once complete, please email us a link to your forked repo with clean, tested code. We will use Chrome to run it.
 
 - Rethink Engineering
+
+## Added Packages
+Looking to integrate these packages to enhance the usability of the file editor.
+- [react-markdown](https://www.npmjs.com/package/react-markdown)
+- [react-simple-code-editor](https://www.npmjs.com/package/react-simple-code-editor)
+  - [prismjs](https://www.npmjs.com/package/prismjs)
+  - [remark-gfm](https://www.npmjs.com/package/remark-gfm)
+
+### Enhancements
+- [ ] Add file previews and edit mode
+- [ ] Add file type support
+- [ ] Allow file editing and preview switching via a button or clicking the "file"
+- [ ] Update modified date after edit

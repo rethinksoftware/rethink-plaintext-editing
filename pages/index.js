@@ -7,8 +7,9 @@ import classNames from 'classnames';
 import { listFiles } from '../files';
 
 // Used below, these need to be registered
-import MarkdownEditor from '../components/MarkdownEditor';
-import PlaintextEditor from '../components/PlaintextEditor';
+import MarkdownEditor from '../components/MarkdownEditor/MarkdownEditor';
+import PlaintextEditor from '../components/PlaintextEditor/PlaintextEditor';
+import JSEditor from '../components/JSEditor/JSEditor';
 
 import IconPlaintextSVG from '../public/icon-plaintext.svg';
 import IconMarkdownSVG from '../public/icon-markdown.svg';
@@ -101,6 +102,7 @@ Previewer.propTypes = {
 const REGISTERED_EDITORS = {
   "text/plain": PlaintextEditor,
   "text/markdown": MarkdownEditor,
+  "text/javascript": JSEditor,
 };
 
 function PlaintextFilesChallenge() {

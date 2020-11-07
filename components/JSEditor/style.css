@@ -1,0 +1,10 @@
+button {
+  border: 3px solid var(--color-border);
+  border-radius: 4px;
+  min-height: 5vh;
+  width: 80px;
+}
+
+button:hover {
+  background-color: var(--color-active-highlight);
+}

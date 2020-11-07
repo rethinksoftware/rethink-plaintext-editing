@@ -10,6 +10,7 @@ import { listFiles } from '../files';
 import MarkdownEditor from '../components/MarkdownEditor/MarkdownEditor';
 import PlaintextEditor from '../components/PlaintextEditor/PlaintextEditor';
 import JSEditor from '../components/JSEditor/JSEditor';
+import ToggleButton from '../components/shared/Toggle';
 
 import IconPlaintextSVG from '../public/icon-plaintext.svg';
 import IconMarkdownSVG from '../public/icon-markdown.svg';
@@ -108,18 +109,22 @@ const REGISTERED_EDITORS = {
 function PlaintextFilesChallenge() {
   const [files, setFiles] = useState([]);
   const [activeFile, setActiveFile] = useState(null);
+  const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
     const files = listFiles();
     setFiles(files);
   }, []);
 
-  const write = file => {
-    console.log('Writing soon... ', file.name);
-
-    // TODO: Write the file to the `files` array
+  const write = (file, text) => {
+    const savedFile = new File([text], file.name, { type: file.type, lastModified: new Date()});
+    let tempFiles = [...files];
+    tempFiles[files.indexOf(file)] = savedFile;
+    setFiles(tempFiles);
+    setActiveFile(savedFile);
   };
 
+  // TODO change to use only a code editor and a markdown editor (has preview)
   const Editor = activeFile ? REGISTERED_EDITORS[activeFile.type] : null;
 
   return (
@@ -158,10 +163,14 @@ function PlaintextFilesChallenge() {
 
       <main className={css.editorWindow}>
         {activeFile && (
-          <>
-            {Editor && <Editor file={activeFile} write={write} />}
-            {!Editor && <Previewer file={activeFile} />}
-          </>
+          <div className={css.editor}>
+            {editMode ?
+              <Editor file={activeFile} write={write} setEditMode={setEditMode} />
+              :
+              <Previewer file={activeFile} />
+            }
+            <ToggleButton editMode={editMode} setEditMode={setEditMode} />
+          </div>
         )}
 
         {!activeFile && (

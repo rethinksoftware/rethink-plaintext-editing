@@ -22,6 +22,21 @@ Looking to integrate these packages to enhance the usability of the file editor.
 
 ### Enhancements
 - [ ] Add file previews and edit mode
+  - [x] JavaScript
+  - [ ] other file types
 - [ ] Add file type support
+  - [x] JavaScript
+  - [ ] other file types
 - [ ] Allow file editing and preview switching via a button or clicking the "file"
-- [ ] Update modified date after edit
+  - [x] button
+  - [ ] clicking the "file"
+- [x] Update modified date after edit
+
+### Incomplete
+- Getting prismjs code highlights working
+- Extending react-simple-code-editor for any supported file type
+  - Removes need for a JSEditor
+  - Implement a general purpose CodeEditor
+- Deciding between autosave or save button
+- Preview should ask user to save first
+- Add styling to JSEditor

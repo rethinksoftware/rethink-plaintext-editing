@@ -6,11 +6,8 @@ import classNames from 'classnames';
 
 import { listFiles } from '../files';
 
-// Used below, these need to be registered
-import MarkdownEditor from '../components/MarkdownEditor/MarkdownEditor';
-import PlaintextEditor from '../components/PlaintextEditor/PlaintextEditor';
-import JSEditor from '../components/JSEditor/JSEditor';
-import ToggleButton from '../components/shared/Toggle';
+import TextEditor from '../components/TextEditor/TextEditor';
+import Previewer from '../components/TextEditor/Previewer';
 
 import IconPlaintextSVG from '../public/icon-plaintext.svg';
 import IconMarkdownSVG from '../public/icon-markdown.svg';
@@ -78,43 +75,10 @@ FilesTable.propTypes = {
   setActiveFile: PropTypes.func
 };
 
-function Previewer({ file }) {
-  const [value, setValue] = useState('');
-
-  useEffect(() => {
-    (async () => {
-      setValue(await file.text());
-    })();
-  }, [file]);
-
-  return (
-    <div className={css.preview}>
-      <div className={css.title}>{path.basename(file.name)}</div>
-      <div className={css.content}>{value}</div>
-    </div>
-  );
-}
-
-Previewer.propTypes = {
-  file: PropTypes.object
-};
-
-// Uncomment keys to register editors for media types
-const REGISTERED_EDITORS = {
-  "text/plain": PlaintextEditor,
-  "text/markdown": MarkdownEditor,
-  "text/javascript": JSEditor,
-};
-
 function PlaintextFilesChallenge() {
   const [files, setFiles] = useState([]);
   const [activeFile, setActiveFile] = useState(null);
   const [editMode, setEditMode] = useState(false);
-
-  useEffect(() => {
-    const files = listFiles();
-    setFiles(files);
-  }, []);
 
   const write = (file, text) => {
     const savedFile = new File([text], file.name, { type: file.type, lastModified: new Date()});
@@ -124,8 +88,16 @@ function PlaintextFilesChallenge() {
     setActiveFile(savedFile);
   };
 
-  // TODO change to use only a code editor and a markdown editor (has preview)
-  const Editor = activeFile ? REGISTERED_EDITORS[activeFile.type] : null;
+  const changeActiveFile = (file) => {
+    setActiveFile(file);
+    setEditMode(false);
+  }
+
+  useEffect(() => {
+    const files = listFiles();
+    setFiles(files);
+  }, []);
+
 
   return (
     <div className={css.page}>
@@ -145,7 +117,7 @@ function PlaintextFilesChallenge() {
         <FilesTable
           files={files}
           activeFile={activeFile}
-          setActiveFile={setActiveFile}
+          setActiveFile={changeActiveFile}
         />
 
         <div style={{ flex: 1 }}></div>
@@ -165,11 +137,10 @@ function PlaintextFilesChallenge() {
         {activeFile && (
           <div className={css.editor}>
             {editMode ?
-              <Editor file={activeFile} write={write} setEditMode={setEditMode} />
+              <TextEditor file={activeFile} write={write} setEditMode={setEditMode} />
               :
-              <Previewer file={activeFile} />
+              <Previewer file={activeFile} setEditMode={setEditMode} />
             }
-            <ToggleButton editMode={editMode} setEditMode={setEditMode} />
           </div>
         )}
 

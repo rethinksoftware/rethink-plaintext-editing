@@ -20,23 +20,13 @@ Looking to integrate these packages to enhance the usability of the file editor.
   - [prismjs](https://www.npmjs.com/package/prismjs)
   - [remark-gfm](https://www.npmjs.com/package/remark-gfm)
 
-### Enhancements
-- [ ] Add file previews and edit mode
-  - [x] JavaScript
-  - [ ] other file types
-- [ ] Add file type support
-  - [x] JavaScript
-  - [ ] other file types
-- [ ] Allow file editing and preview switching via a button or clicking the "file"
-  - [x] button
-  - [ ] clicking the "file"
-- [x] Update modified date after edit
+### Features Implemented
+Focused on text editor.
+- Universal file editor
+- File saving (ephemeral)
 
-### Incomplete
-- Getting prismjs code highlights working
-- Extending react-simple-code-editor for any supported file type
-  - Removes need for a JSEditor
-  - Implement a general purpose CodeEditor
-- Deciding between autosave or save button
-- Preview should ask user to save first
-- Add styling to JSEditor
+### Challenges
+- Not focusing on a single feature and setting smaller goals
+  - Attempting to add code highlighting with prismjs and failing
+- Learning the codebase and making the right design decisions the first time
+  - Refactoring components around

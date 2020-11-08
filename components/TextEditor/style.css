@@ -9,6 +9,10 @@ button:hover {
   background-color: var(--color-active-highlight);
 }
 
+.editor {
+  width: 640px;
+}
+
 .preview {
   width: 640px;
   background-color: var(--color-white);

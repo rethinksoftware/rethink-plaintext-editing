@@ -24,7 +24,7 @@ function TextEditor({ file, write, setEditMode}) {
   }, [file]);
 
   return (
-    <div className={css.jsEditor}>
+    <div className={css.editor}>
       <Editor
         value={text}
         onValueChange={text => setText(text)}

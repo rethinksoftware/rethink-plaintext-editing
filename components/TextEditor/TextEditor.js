@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Prism from 'prismjs'
 import Editor from 'react-simple-code-editor';
-import { highlight, languages } from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
-
+import ToggleButton from './Toggle';
 import css from './style.css';
 
-
-function JSEditor({ file, write }) {
+function TextEditor({ file, write, setEditMode}) {
   const [text, setText] = useState('');
 
   const saveFile = (text) => {
     setText(text);
     write(file, text);
+  }
+
+  const changeEditMode = (mode) => {
+    saveFile(text);
+    setEditMode(mode);
   }
 
   useEffect(() => {
@@ -28,18 +28,20 @@ function JSEditor({ file, write }) {
       <Editor
         value={text}
         onValueChange={text => setText(text)}
-        highlight={text => highlight(text, languages.js)}
+        highlight={text => text}
         padding={10}
       />
       <button onClick={() => saveFile(text)}>Save</button>
+      <ToggleButton editMode={true} setEditMode={changeEditMode} />
     </div>
   );
 
 }
 
-JSEditor.propTypes = {
+TextEditor.propTypes = {
   file: PropTypes.object,
-  write: PropTypes.func
+  write: PropTypes.func,
+  setEditMode: PropTypes.func
 };
 
-export default JSEditor;
+export default TextEditor;

@@ -3,12 +3,15 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import path from 'path';
 import classNames from 'classnames';
+import { Button } from '@material-ui/core'
 
 import { listFiles } from '../files';
 
 // Used below, these need to be registered
 import MarkdownEditor from '../MarkdownEditor';
 import PlaintextEditor from '../components/PlaintextEditor';
+import DataTable from '../components/DataTable'
+import UrlGenerator from '../components/UrlGenerator'
 
 import IconPlaintextSVG from '../public/icon-plaintext.svg';
 import IconMarkdownSVG from '../public/icon-markdown.svg';
@@ -106,6 +109,8 @@ const REGISTERED_EDITORS = {
 function PlaintextFilesChallenge() {
   const [files, setFiles] = useState([]);
   const [activeFile, setActiveFile] = useState(null);
+  const [openTable, setOpenTable] = useState(false);
+  const [openUrlGenerator, setOpenUrlGenerator] = useState(false);
 
   useEffect(() => {
     const files = listFiles();
@@ -139,6 +144,31 @@ function PlaintextFilesChallenge() {
           files={files}
           activeFile={activeFile}
           setActiveFile={setActiveFile}
+        />
+
+        <Button
+          onClick={() => setOpenTable(true)}
+          style={{padding: "1rem", backgroundColor: "lightgray", margin: "2px 0"}}
+        >
+          show Data
+        </Button>
+
+        <Button
+          onClick={() => setOpenUrlGenerator(true)}
+          style={{padding: "1rem", backgroundColor: "lightgray", margin: "2px 0"}}
+        >
+          Url Generator
+        </Button>
+
+
+        <UrlGenerator
+          openUrlGenerator={openUrlGenerator}
+          setOpenUrlGenerator={setOpenUrlGenerator}
+        />
+
+        <DataTable
+          openTable={openTable}
+          setOpenTable={setOpenTable}
         />
 
         <div style={{ flex: 1 }}></div>

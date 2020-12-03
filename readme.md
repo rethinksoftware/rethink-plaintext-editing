@@ -15,31 +15,31 @@ Once complete, please email us a link to your forked repo with clean, tested cod
 
 
 
-#Assumptions
+# Assumptions
 
 The text editor MVP is used primarily on laptop/desktop to provide a user friendly way to edit various type of files. Functional requirements include the ability to read, edit, and save a file. Usability requirements include scrolling. Additional features to make it more user friendly such as syntax highlighter, find and replace, and file preview are appreciated but not required.
 
-#Scope
+# Scope
 
 Must have:
 
-- Ability to edit text
+- Ability to edit text - Finished
 
-- Syntax highlights depends on file type
+- Syntax highlights depends on file type - In Progress
 
-- Persist to local storage on file change
+- Persist to local storage on file change - Complete, not tested
 
-- Scrolling
+- Scrolling - Complete
 
 Nice to have:
 
-- Occupy full screen
+- Styling Editor - Complete
 
-- Integration test
+- Integration test - Not Started
 
-- File Preview
+- File Preview - In Progress, Needs styling to display alongside editor
 
-- find and replace
+- Find and replace - Not Started
 
 Not in scope:
 
@@ -48,4 +48,22 @@ Not in scope:
 - Saving to database
 
 - Version Control
+
+
+# Running in dev
+
+- FORK this repo
+- Download forked repo and run `npm install && npm run dev`
+- Open `localhost:3000` in your browser
+- Enjoy
+
+# Testing
+
+Tests are written with [Jest](https://jestjs.io/) and [React-Test-Library](https://testing-library.com/docs/react-testing-library/intro/)
+- save text files in format of file_to_text.test.js under each Module to test
+- npm run test
+
+# Styling Libraries Used
+ [React-Monaco-Editor](https://github.com/react-monaco-editor/react-monaco-editor) for editor syntax highlights
+ [React-Mark-Down](https://github.com/remarkjs/react-markdown) for Markdown preview syntax highlights
 

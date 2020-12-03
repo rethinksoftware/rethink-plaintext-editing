@@ -198,7 +198,7 @@ function PlaintextFilesChallenge() {
             <a href="https://v3.rethink.software/jobs">Rethink Software</a>
             &nbsp;—&nbsp;Frontend Engineering Challenge
           </div>
-          <div className={css.nk}>
+          <div className={css.link}>
             Questions? Feedback? Email us at jobs@rethink.software
           </div>
         </footer>

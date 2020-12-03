@@ -12,3 +12,40 @@ To run the challenge:
 Once complete, please email us a link to your forked repo with clean, tested code. We will use Chrome to run it.
 
 - Rethink Engineering
+
+
+
+#Assumptions
+
+The text editor MVP is used primarily on laptop/desktop to provide a user friendly way to edit various type of files. Functional requirements include the ability to read, edit, and save a file. Usability requirements include scrolling. Additional features to make it more user friendly such as syntax highlighter, find and replace, and file preview are appreciated but not required.
+
+#Scope
+
+Must have:
+
+- Ability to edit text
+
+- Syntax highlights depends on file type
+
+- Persist to local storage on file change
+
+- Scrolling
+
+Nice to have:
+
+- Occupy full screen
+
+- Integration test
+
+- File Preview
+
+- find and replace
+
+Not in scope:
+
+- Mobile Friendly
+
+- Saving to database
+
+- Version Control
+

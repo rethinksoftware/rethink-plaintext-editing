@@ -8,7 +8,7 @@ import { listFiles } from '../files';
 
 import MarkdownEditor from '../components/MarkdownEditor';
 import PlaintextEditor from '../components/PlaintextEditor';
-// import CodeEditor from '../components/CodeEditor';
+import CodeEditor from '../components/CodeEditor';
 
 
 import IconPlaintextSVG from '../public/icon-plaintext.svg';
@@ -101,8 +101,8 @@ Previewer.propTypes = {
 const REGISTERED_EDITORS = {
   "text/plain": PlaintextEditor,
   "text/markdown": MarkdownEditor,
-  // "text/javascript" : CodeEditor,
-  // "application/json" : CodeEditor
+  "text/javascript" : CodeEditor,
+  "application/json" : CodeEditor
 };
 
 function PlaintextFilesChallenge() {

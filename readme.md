@@ -47,7 +47,7 @@ Not in scope:
 
 - Saving to database
 
-- Version Control
+- Version control of files
 
 
 # Running in dev
@@ -67,3 +67,6 @@ Tests are written with [Jest](https://jestjs.io/) and [React-Test-Library](https
  [React-Monaco-Editor](https://github.com/react-monaco-editor/react-monaco-editor) for editor syntax highlights
  [React-Mark-Down](https://github.com/remarkjs/react-markdown) for Markdown preview syntax highlights
 
+# Bugs/Todo
+ (in addition to scope)
+ - Update timestamp on editing file: right now have to click other files/refresh to see updated date

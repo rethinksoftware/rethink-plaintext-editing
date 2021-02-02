@@ -5,7 +5,7 @@ import css from './style.css';
 import { listFiles } from '../../files';
 
 function PlaintextEditor({ file, write }) {
-  console.log(file, write);
+
   const [currText, setText] = useState(null);
 
   useEffect(() => {

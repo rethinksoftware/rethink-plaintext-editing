@@ -1,4 +1,13 @@
 .editor {
   width: 640px;
   background-color: var(--color-white);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.textArea{
+  width: 100%;
+  height: 400px;
 }

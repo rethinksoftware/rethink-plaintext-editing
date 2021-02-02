@@ -7,3 +7,7 @@
   align-items: center;
   justify-content: center;
 }
+.textArea{
+  width: 100%;
+  height: 400px;
+}

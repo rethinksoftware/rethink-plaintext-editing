@@ -14,21 +14,34 @@ function PlaintextEditor({ file, write }) {
     });
   }, []);
 
+
   useEffect(() => {
     file.text().then((value)=>{
       setText(value);
     });
   }, [file]);
 
-  let handleTextChange = (text) => {
-      setText(text);
-      file.
-      write(//make new file)
+
+  let handleTextChange = (event) => {
+      setText(event.target.value);
+
+      let updatedFile = new File(
+        [
+            event.target.value
+        ],
+        file.name,
+        {
+          type: file.type,
+          lastModified: Date.now()
+        }
+      );
+      write(updatedFile)
   }
+
   return (
     <div className={css.editor}>
       <h3>{file.name.substring(1)}</h3>
-      <textarea contentEditable="true" onChange={handleTextChange} className={css.textArea} value={currText}/>
+      <textarea onChange={handleTextChange} className={css.textArea} value={currText?currText:""}/>
     </div>
   );
 }

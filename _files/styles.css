@@ -1,0 +1,43 @@
+:root {
+  --color-white: #ffffff;
+  --color-background: #f6f8f9;
+
+  --color-active: #1f53f1;
+  --color-active-highlight: #316ed81f;
+
+  --color-text-dark: #000a41;
+  --color-text-dark-mute: #607087;
+df
+  --color-border: #e6e8eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Markdown Editor Reset */
+.editor-toolbar {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-top-left-radius: initial;
+  border-top-right-radius: initial;
+}
+
+.CodeMirror.cm-s-easymde.CodeMirror-wrap {
+  padding: 10px 15px;
+  border: none;
+  border-bottom-left-radius: initial;
+  border-bottom-right-radius: initial;
+  height: 25rem;
+}
+
+.editor-preview-full.editor-preview.editor-preview-active {
+  padding: 10px 20px;
+}

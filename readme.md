@@ -9,6 +9,6 @@ To run the challenge:
 - Open `localhost:3000` in your browser
 - Enjoy
 
-Once complete, please email us a link to your forked repo with clean, tested code. We will use Chrome to run it.
-
-- Rethink Engineering
+Once complete, please email us a link to your forked repo with clean, tested code.
+- Email fork link to: careers@rethink.software or your current contact
+- We will use Chrome to run it
